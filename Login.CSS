@@ -1,9 +1,17 @@
 * {
     Background: #e0e0e0;
     font-family: sans-serif;
-    color: #3d3e3f;
+    color: #668c99;
 }
 
+.voorpagina {
+    background-image:
+    url("https://scifijon.files.wordpress.com/2016/04/rijksmuseum-research-library-amsterdam-custom.jpg");
+    background-position: center center;
+}
+
+
+}
 h1 {
     
 }
