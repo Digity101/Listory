@@ -3,26 +3,81 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Blank App</title>
 		<script type="text/javascript" src=jquery-3.2.1.min.js></script>
+		<!--<link href="jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet">-->
+		<script type="text/javascript" src=jquery.mobile-1.4.5.js></script>
+		<script type="text/javascript" src=js.storage.min.js></script>
+		<script type="text/javascript" src=Functies.js></script>
 		<script type="text/javascript" src=login.js></script>
+		<script type="text/javascript" src=galgje.js></script>
+		<script>
+			function navbar() {
+				var x = document.getElementById("myTopnav");
+				if (x.className === "nav") {
+				    x.className += " responsive";
+					
+				} else {
+				 x.className = "nav";
+				}	
+			}
+			$( document ).ready(function() {
+				var localLogin = JSON.parse(localStorage.getItem('LoginI'));
+				 if(localLogin.Uname ){
+				var info = `Username : ` + localLogin.Uname +
+		        `<button onclick="LogUit();"> Log Uit</button>`;
+                console.log(info);
+                $("#info").append(info);
+				 }
+			});
+			function Laad(a){
+				LaadPagina(a);
+				var x = document.getElementById("myTopnav");
+				if (x.className == "nav responsive") {
+					x.className = "nav";
+				}
+			}
+
+		</script>
 		<link href="Login.CSS" type="text/css" rel="stylesheet">
+ 	   <title>Listory</title>
+		<!--https://stackoverflow.com/questions/6109882/regex-match-all-characters-between-two-strings-->
     </head>
     <body>
-	<div class="voorpagina">
-		Listory
-		<div class="titel">
-		</div>
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100|Pontano+Sans|Ruda:900" rel="stylesheet">
+<nav id="myTopnav" class="nav">
+	<div id="info">
+		 
 	</div>
-        <Form id="login" method="POST" >
-		<label><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="uname" required>
-		<br>
-		<label><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="psw" required>
-		<br>
-		<button type="submit" id="verzenden">Login</button>
-		<input type="checkbox" checked="checked"> Remember me
+	<div class="MenuItem Titel ResTitel" id="respTitel">LISTORY</div>
+	<div class="MenuItem" onclick="Laad(0);">HOME</div>
+	<div class="MenuItem" onclick="Laad(4);">GROEPEN</div>
+	<div class="MenuItem Titel" id="600pxtitel">LISTORY</div>
+	<div class="MenuItem" onclick="Laad(2);">GAMES</div>
+	<div class="MenuItem" onclick="Laad(5);">VORDERING</div>
+	<div Class="MenuItem loguit" onclick="LogUit();">Log Uit</div>
+	<div class="MenuItem Icon" onclick="navbar();">&#9776;</div>
+
+</nav>
+<div id="Wrapper">
+	<!--
+	<div class="Image">
+		<img src="Bibliotheek.jpg" class="foto">
+	</div>!-->
+	<div id="InlogForm">
+		<Form id="login" method="POST" >
+			<div id="FormCont">
+				<h2>Login</h2>
+				<label><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" required>
+				<br>
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+				<br>
+			<button type="submit" id="verzenden">Login</button>
+		<input type="checkbox" checked="checked" name="RememberMe"> Onthoud mij
+		</div>
 	</Form>
-    </body>
+	</div>
+</div>
+</body>
 </html>

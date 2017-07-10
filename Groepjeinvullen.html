@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="Wrapper">
+<form id="login" method="POST">
+  Ga in groep:<br>
+  <input type="number" name="NgroepN">
+  <br>
+  <button type="submit" id="verzenden">Verander groep</button>
+</form>
+	<script>
+		$(function () {
+			$('form').on('submit', function (e) {
+			   var LoginI = JSON.parse(localStorage.getItem('LoginI'));
+			   e.preventDefault(); //stopt de pagine laden
+			   $.ajax({
+			        type: 'POST',
+			        url: 'http://listory.helenparkhurst.net/DBUpdate.php',
+			        data: ($('form').serialize() + "&Uname=" + LoginI.Uname), //serialize veranderd data naar soort van get url ?username=abdc&wactwoord=13123
+			        success: function () {
+						LogUit();
+						alert("Log alstublieft opnieuw in");
+			        },
+			        error: function () {
+		            alert('rip');
+	            }
+	        });
+	   });
+	});
+	</script>
+</div><!--EndContent-->
+</body>
+</html>

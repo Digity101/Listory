@@ -1,0 +1,23 @@
+<div id="Wrapper">
+	<script>
+		$( document ).ready(function() {
+			var ProData = JSON.parse(localStorage.getItem('TekeningVraag'));
+			if(ProData.Img !== "Er is nog niets om te raden."){
+				$("#Wrapper").append(`<img id ="img">`);
+				document.getElementById('img').setAttribute( 'src', 'data:image/png;base64,' + ProData.Img);
+				$("#Wrapper").append(`Dit is <input type="text" id="Antwoord" name="Antwoord"><button onclick="Check();">Check</button>`);
+			} else {
+				$("#Wrapper").append(ProData.Img);
+			}
+		});
+		
+function Check(){
+	var ProData = JSON.parse(localStorage.getItem('TekeningVraag'));
+	if(ProData.vraag === document.getElementById('Antwoord').value){
+		alert("Goed geraden");
+	} else {
+		alert("Fout Probeer opnieuw");
+	}
+}
+</script>
+</div><!--EndContent-->

@@ -1,0 +1,38 @@
+<div id="Wrapper">
+<div id="HeaderW">
+	<div class="BImage"> 
+			<img id="Banner"src="Banner-boeken.png">
+	</div>
+</div> 
+  
+  <div class="content-box">
+    <div id="content-body">
+      <br>
+			
+			<ul id="Groepsleden">
+			</ul>
+        <script>
+					$(document).ready(function() {
+						var LoginI = JSON.parse(localStorage.getItem('LoginI'));
+						if(LoginI.GroepN !== 0){
+							if (LoginI.GroepUs.length !== 1){
+								$("#content-body").prepend("Je zit in groep " + LoginI.GroepN + " samen met:");
+								for(I = 0; LoginI.GroepUs.length > I; I++){
+									if(LoginI.GroepUs[I] != LoginI.Uname){
+										$("#Groepsleden").append("<li>" + LoginI.GroepUs[I] + "</li>");
+									}
+								}
+							} else {
+								$("#content-body").prepend("Je zit alleen in een groep zorg dat je groepsleden zich bij groep " + LoginI.GroepN + " voegen.");
+							}
+							
+						}else{
+								$("#Groepsleden").prepend("Je hebt nog geen groepje kies hier een groepje door op de knop te drukken<br>");
+						}
+					});
+				</script>
+				<button id="Knop1" onclick="LaadPagina(1);">Verander of maak een groepje</button>
+		</div>
+		<button onclick="LogUit();">Log Uit</button>
+  </div>
+  </div><!--EndContent-->

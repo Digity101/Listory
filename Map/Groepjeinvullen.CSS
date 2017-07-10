@@ -1,0 +1,15 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #bccbe5;
+  text-align: bottom center;
+}
+<title>Listory</title>
+
+.Titel {
+  background-image: url("http://66.media.tumblr.com/d63bb2e1abf8a92a80f7bf5d4798e92f/tumblr_n2y4afxp351qguyo7o1_1280.jpg");
+  height: 400px;
+  background-position: center;
+  
+}
+

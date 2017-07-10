@@ -1,0 +1,25 @@
+* {
+    background
+    
+}
+.beschikbaar {
+    background-color: #bccbe5;
+    height: 24%;
+    width: 100%;
+    
+}
+
+.niet_beschikbaar {
+    background-color: #415677;
+    background-position: center;
+    width: 92%;
+    height: 18%;
+}
+
+.tekst_beschikbaar {
+    text-align: center;
+}
+
+.tekst_niet_beschikbaar {
+    text-align: center;
+}

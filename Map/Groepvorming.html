@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Listory</title>
+  <link href='http://66.media.tumblr.com/d63bb2e1abf8a92a80f7bf5d4798e92f/tumblr_n2y4afxp351qguyo7o1_1280.jpg' rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="Groepvorming.css">
+	<script type="text/javascript" src=jquery-3.2.1.min.js></script>
+</head>
+<body>
+<div id="Wrapper">
+  <div class="header">
+    <div id="header-text"> <!--Add an id to this div -->
+      <h1>Listory</h1>
+    </div>
+  </div>
+
+  <div class="Image"> 
+   <img src='http://66.media.tumblr.com/d63bb2e1abf8a92a80f7bf5d4798e92f/tumblr_n2y4afxp351qguyo7o1_1280.jpg' id="aa-logo" width="150px"></h4>
+  </div>
+  
+  
+  <div class="content-box">
+    <div class="content-header">
+			Listory
+      <h1>Groep</h1>
+    </div>
+    <div class="content-body">
+      <br>
+			<ul id="Groepsleden">
+        <script>
+					$(document).ready(function() {
+						var LoginI = JSON.parse(localStorage.getItem('LoginI'));
+						if(LoginI.GroepN !== 0){
+							for(I = 0; LoginI.GroepUs.length > I; I++){
+								$("#Groepsleden").prepend("Je zit in groep " + LoginI.GroepN + " samen met:");
+								$("#Groepsleden").append("<li>".concat(LoginI.GroepUs[I], "</li>"));
+							}
+						}else{
+								$("#Groepsleden").prepend("Je hebt nog geen groepje kies hier een groepje door op de knop te drukken<br><button id=\"Knop1\" onclick=\"LaadPagina(1);\">Maak een groepje</button>");
+								//$("#Knop1").click(function(){LaadPagina(1)});
+						}
+					});
+				</script>
+			</ul>
+		</div>
+  </div>
+  </div><!--EndContent-->
+</body>
+</html>
